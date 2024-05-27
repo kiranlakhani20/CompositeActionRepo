@@ -1,0 +1,43 @@
+name: "FedEx composite action eg"
+description: "FedEx composite action eg steps are mentioned below"
+
+inputs:
+  devops-integration-user-name:
+    description: "The username for DevOps integration."
+    required: true
+  devops-integration-user-password:
+    description: "The password for DevOps integration."
+    required: true
+  instance-url:
+    description: "The URL of the ServiceNow instance."
+    required: true
+  tool-id:
+    description: "The ID of the Orchestration Tool."
+    required: true
+  context-github:
+    description: "GitHub Context."
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: ServiceNow DevOps Unit Test Results
+      uses: ServiceNow/servicenow-devops-test-report@main
+      with:
+        devops-integration-user-name: ${{ inputs.devops-integration-user-name }}
+        devops-integration-user-password: ${{ inputs.devops-integration-user-password }}
+        instance-url: ${{ inputs.instance-url }}
+        tool-id: ${{ inputs.tool-id }}
+        job-name: 'ServiceNow DevOps Unit Test Results'
+        context-github: ${{ inputs.context-github }}
+        xml-report-filename: valid-xunit.xml
+
+
+    # - name: Build change request payload
+    # id: build-change-payload
+    # uses: Fedex/eai-3538069-pdsm/devops-changes@main
+    
+    # - name: Open Change
+    # if: needs.compliance_ppm.outputs.skip-compliance != 'true' && steps.skip.outputs.skip-pdsm != 'true'
+    # id: open_pdsm_change
+    # uses: ServiceNow/servicenow-devops-change@v2.0.0
