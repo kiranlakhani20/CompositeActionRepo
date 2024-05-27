@@ -36,12 +36,18 @@ runs:
       id: open_pdsm_change
       uses: ServiceNow/servicenow-devops-change@v2.0.0
       with:
+        devops-integration-user-name: ${{ inputs.devops-integration-user-name }}
+        devops-integration-user-password: ${{ inputs.devops-integration-user-password }}
         instance-url: 'https://empkiranv02.service-now.com/'
-        devops-integration-token: 'BTukZQkGrjazLvvCrd5m9YnfCVHveH92'
         tool-id: ${{ inputs.tool-id }}
-        job-name: 'Open change / Test'
         context-github: ${{ inputs.context-github }}
+        job-name: 'Open change / Test'
         change-request: '{"setCloseCode":"true","attributes":{"short_description":"Automated Software Deployment","description":"Automated Software Deployment.","assignment_group":"a715cd759f2002002920bde8132e7018","implementation_plan":"Software update is tested and results can be found in Test Summaries Tab; When the change is approved the implementation happens automated by the CICD pipeline within the change planned start and end time window.","backout_plan":"When software fails in production, the previous software release will be re-deployed.","test_plan":"Testing if the software was successfully deployed"}}'
+        interval: '100'
+        timeout: '3600'
+        changeCreationTimeOut: '3600'
+        abortOnChangeCreationFailure: true
+        abortOnChangeStepTimeout: true
       
 
     # - name: Checkout Code
