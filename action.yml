@@ -21,27 +21,27 @@ inputs:
 runs:
   using: "composite"
   steps:
-    # - name: ServiceNow DevOps Unit Test Results
-    #   uses: ServiceNow/servicenow-devops-test-report@main
-    #   with:
-    #     devops-integration-user-name: ${{ inputs.devops-integration-user-name }}
-    #     devops-integration-user-password: ${{ inputs.devops-integration-user-password }}
-    #     instance-url: ${{ inputs.instance-url }}
-    #     tool-id: ${{ inputs.tool-id }}
-    #     job-name: 'ServiceNow DevOps Unit Test Results'
-    #     context-github: ${{ inputs.context-github }}
-    #     xml-report-filename: valid-xunit.xml
-
-    - name: Checkout Code
-      uses: actions/checkout@v2
-
-    - name: Setup JDK 11 for Sonar Cloud
-      uses: actions/setup-java@v1
+    - name: ServiceNow DevOps Unit Test Results
+      uses: ServiceNow/servicenow-devops-test-report@main
       with:
-        java-version: 11
+        devops-integration-user-name: ${{ inputs.devops-integration-user-name }}
+        devops-integration-user-password: ${{ inputs.devops-integration-user-password }}
+        instance-url: 'https://empkiranv02.service-now.com/'
+        tool-id: ${{ inputs.tool-id }}
+        job-name: 'ServiceNow DevOps Unit Test Results'
+        context-github: ${{ inputs.context-github }}
+        xml-report-filename: valid-xunit.xml
 
-    - name: Maven Build
-      run: mvn clean install -DskipTests=true
+    # - name: Checkout Code
+    #   uses: actions/checkout@v2
+
+    # - name: Setup JDK 11 for Sonar Cloud
+    #   uses: actions/setup-java@v1
+    #   with:
+    #     java-version: 11
+
+    # - name: Maven Build
+    #   run: mvn clean install -DskipTests=true
 
     # - name: Build change request payload
     # id: build-change-payload
