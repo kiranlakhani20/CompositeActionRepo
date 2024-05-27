@@ -34,7 +34,7 @@ runs:
 
     - name: Open change
       id: open_pdsm_change
-      uses: ServiceNow/servicenow-devops-change@main
+      uses: ServiceNow/servicenow-devops-change@v2.0.0
       with:
         instance-url: 'https://empkiranv02.service-now.com/'
         devops-integration-token: 'BTukZQkGrjazLvvCrd5m9YnfCVHveH92'
