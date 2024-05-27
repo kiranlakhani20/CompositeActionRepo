@@ -28,7 +28,7 @@ runs:
         devops-integration-user-password: ${{ inputs.devops-integration-user-password }}
         instance-url: 'https://empkiranv02.service-now.com/'
         tool-id: ${{ inputs.tool-id }}
-        job-name: 'call-composite-action-test'
+        job-name: 'call-composite-action-test / Test'
         context-github: ${{ inputs.context-github }}
         xml-report-filename: valid-xunit.xml
 
