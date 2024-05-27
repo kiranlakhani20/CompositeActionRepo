@@ -21,14 +21,14 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: ServiceNow DevOps Unit Test Results
+    - name: call-composite-action-test
       uses: ServiceNow/servicenow-devops-test-report@main
       with:
         devops-integration-user-name: ${{ inputs.devops-integration-user-name }}
         devops-integration-user-password: ${{ inputs.devops-integration-user-password }}
         instance-url: 'https://empkiranv02.service-now.com/'
         tool-id: ${{ inputs.tool-id }}
-        job-name: 'ServiceNow DevOps Unit Test Results'
+        job-name: 'call-composite-action-test'
         context-github: ${{ inputs.context-github }}
         xml-report-filename: valid-xunit.xml
 
