@@ -36,7 +36,7 @@ runs:
         xml-report-filename: valid-xunit.xml
 
     - name: call-composite-action-change
-      uses: ServiceNow/servicenow-devops-change@dev
+      uses: ServiceNow/servicenow-devops-change@v4.0.0
       with:
         devops-integration-user-name: ${{ inputs.devops-integration-user-name }}
         devops-integration-user-password: ${{ inputs.devops-integration-user-password }}
