@@ -17,9 +17,9 @@ inputs:
   context-github:
     description: "GitHub Context."
     required: true
-  job-name:
-    description: "GitHub Context."
-    required: true
+  # job-name:
+  #   description: "GitHub Context."
+  #   required: true
 
 runs:
   using: "composite"
@@ -29,9 +29,9 @@ runs:
       with:
         devops-integration-user-name: ${{ inputs.devops-integration-user-name }}
         devops-integration-user-password: ${{ inputs.devops-integration-user-password }}
-        instance-url: 'https://empkiranv02.service-now.com/'
+        instance-url: 'https://empvkl01.service-now.com/'
         tool-id: ${{ inputs.tool-id }}
-        job-name: ${{ inputs.job-name }}
+        job-name: 'call-composite-action-test / Test'
         context-github: ${{ inputs.context-github }}
         xml-report-filename: valid-xunit.xml
 
