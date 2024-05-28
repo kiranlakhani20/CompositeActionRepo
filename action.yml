@@ -17,6 +17,9 @@ inputs:
   context-github:
     description: "GitHub Context."
     required: true
+  job-name:
+    description: "GitHub Context."
+    required: true
 
 runs:
   using: "composite"
@@ -28,7 +31,7 @@ runs:
         devops-integration-user-password: ${{ inputs.devops-integration-user-password }}
         instance-url: 'https://empkiranv02.service-now.com/'
         tool-id: ${{ inputs.tool-id }}
-        job-name: 'call-composite-action-test / Test'
+        job-name: ${{ inputs.job-name }}
         context-github: ${{ inputs.context-github }}
         xml-report-filename: valid-xunit.xml
 
@@ -40,7 +43,7 @@ runs:
         instance-url: 'https://empkiranv02.service-now.com/'
         tool-id: ${{ inputs.tool-id }}
         context-github: ${{ inputs.context-github }}
-        job-name: 'call-composite-action-change / Test'
+        job-name: ${{ inputs.job-name }}
         change-request: '{"autoCloseChange":true,"attributes": {"close_notes":"ASD for close notes"}}'
         interval: '100'
         timeout: '3600'
