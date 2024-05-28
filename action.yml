@@ -32,6 +32,21 @@ runs:
         context-github: ${{ inputs.context-github }}
         xml-report-filename: valid-xunit.xml
 
+    - name: call-composite-action-change
+      uses: ServiceNow/servicenow-devops-change@dev
+      with:
+        devops-integration-user-name: ${{ inputs.devops-integration-user-name }}
+        devops-integration-user-password: ${{ inputs.devops-integration-user-password }}
+        instance-url: 'https://empkiranv02.service-now.com/'
+        tool-id: ${{ inputs.tool-id }}
+        context-github: ${{ inputs.context-github }}
+        job-name: 'call-composite-action-change / Test'
+        change-request: '{"autoCloseChange":true,"attributes": {"close_notes":"ASD for close notes"}}'
+        interval: '100'
+        timeout: '3600'
+        
+        
+
     # - name: ServiceNow DevOps Change Automation
     #   uses: ServiceNow/servicenow-devops-change@dev
     #   with:
