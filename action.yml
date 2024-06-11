@@ -43,7 +43,7 @@ runs:
         instance-url: 'https://avitokyo4.service-now.com/'
         tool-id: ${{ inputs.tool-id }}
         context-github: ${{ inputs.context-github }}
-        job-name: ${{ inputs.job-name }}
+        job-name: 'call-composite-action-change'
         change-request: '{"autoCloseChange":true,"attributes": {"close_notes":"ASD for close notes"}}'
         interval: '100'
         timeout: '3600'
