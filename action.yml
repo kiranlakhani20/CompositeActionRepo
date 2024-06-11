@@ -24,29 +24,29 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: call-composite-action-test
-      uses: ServiceNow/servicenow-devops-test-report@main
+    # - name: call-composite-action-test
+    #   uses: ServiceNow/servicenow-devops-test-report@main
+    #   with:
+    #     devops-integration-user-name: ${{ inputs.devops-integration-user-name }}
+    #     devops-integration-user-password: ${{ inputs.devops-integration-user-password }}
+    #     instance-url: 'https://avitokyo4.service-now.com/'
+    #     tool-id: ${{ inputs.tool-id }}
+    #     job-name: 'call-composite-action-test / Test'
+    #     context-github: ${{ inputs.context-github }}
+    #     xml-report-filename: valid-xunit.xml
+
+    - name: call-composite-action-change
+      uses: ServiceNow/servicenow-devops-change@v4.0.0
       with:
         devops-integration-user-name: ${{ inputs.devops-integration-user-name }}
         devops-integration-user-password: ${{ inputs.devops-integration-user-password }}
         instance-url: 'https://avitokyo4.service-now.com/'
         tool-id: ${{ inputs.tool-id }}
-        job-name: 'call-composite-action-test / Test'
         context-github: ${{ inputs.context-github }}
-        xml-report-filename: valid-xunit.xml
-
-    # - name: call-composite-action-change
-    #   uses: ServiceNow/servicenow-devops-change@v4.0.0
-    #   with:
-    #     devops-integration-user-name: ${{ inputs.devops-integration-user-name }}
-    #     devops-integration-user-password: ${{ inputs.devops-integration-user-password }}
-    #     instance-url: 'https://empkiranv02.service-now.com/'
-    #     tool-id: ${{ inputs.tool-id }}
-    #     context-github: ${{ inputs.context-github }}
-    #     job-name: ${{ inputs.job-name }}
-    #     change-request: '{"autoCloseChange":true,"attributes": {"close_notes":"ASD for close notes"}}'
-    #     interval: '100'
-    #     timeout: '3600'
+        job-name: ${{ inputs.job-name }}
+        change-request: '{"autoCloseChange":true,"attributes": {"close_notes":"ASD for close notes"}}'
+        interval: '100'
+        timeout: '3600'
         
         
 
