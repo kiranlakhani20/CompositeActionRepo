@@ -14,6 +14,9 @@ inputs:
   instance-url:
     description: "The URL of the ServiceNow instance."
     required: true
+  job-name:
+    description: "The job name for change creation."
+    required: true
   tool-id:
     description: "The ID of the Orchestration Tool."
     required: true
@@ -50,7 +53,7 @@ runs:
         change-request: '{"autoCloseChange":true,"attributes": {"close_notes":"ASD for close notes"}}'
         interval: '100'
         timeout: '3600'
-        job-name: 'call-composite-action-test / Test'
+        job-name: ${{ inputs.job-name }}
         
         
 
