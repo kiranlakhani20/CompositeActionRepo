@@ -2,12 +2,15 @@ name: "FedEx composite action eg"
 description: "FedEx composite action eg steps are mentioned below"
 
 inputs:
-  devops-integration-user-name:
-    description: "The username for DevOps integration."
+  devops-integration-token:
+    description: "The token for DevOps integration tool."
     required: true
-  devops-integration-user-password:
-    description: "The password for DevOps integration."
-    required: true
+  # devops-integration-user-name:
+  #   description: "The username for DevOps integration."
+  #   required: true
+  # devops-integration-user-password:
+  #   description: "The password for DevOps integration."
+  #   required: true
   instance-url:
     description: "The URL of the ServiceNow instance."
     required: true
@@ -38,9 +41,10 @@ runs:
     - name: call-composite-action-change
       uses: ServiceNow/servicenow-devops-change@v4.0.0
       with:
-        devops-integration-user-name: ${{ inputs.devops-integration-user-name }}
-        devops-integration-user-password: ${{ inputs.devops-integration-user-password }}
-        instance-url: 'https://avitokyo4.service-now.com/'
+        # devops-integration-user-name: ${{ inputs.devops-integration-user-name }}
+        # devops-integration-user-password: ${{ inputs.devops-integration-user-password }}
+        devops-integration-token: ${{ inputs.devops-integration-token }}
+        instance-url: ${{ inputs.instance-url }}
         tool-id: ${{ inputs.tool-id }}
         context-github: ${{ inputs.context-github }}
         change-request: '{"autoCloseChange":true,"attributes": {"close_notes":"ASD for close notes"}}'
