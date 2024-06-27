@@ -50,7 +50,7 @@ runs:
         change-request: '{"autoCloseChange":true,"attributes": {"close_notes":"ASD for close notes"}}'
         interval: '100'
         timeout: '3600'
-        job-name: 'call-composite-action-test/Test'
+        job-name: 'call-composite-action-test / Test'
         
         
 
